@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>PM2 Watch & Monitor</title>
+      <link rel="stylesheet" type="text/css" href="/stylesheet/app.css">
+   </head>
+   <body>
+      <nav>
+         <ol>
+            <li>
+               <a href="/">
+                  Home Page
+               </a>
+            </li>
+         </ol>
+         <ol class="menu-right">
+            <% if(appSetting){ %>
+               <li id="editApp" class="item menu">
+                  Edit App Settings
+               </li>
+            <% } else { %>
+               <li id="createApp" class="item menu">
+                  Create App Settings
+               </li>
+            <% } %>
+         </ol>
+         <!-- <a class="item" href="/help">
+            Help
+         </a> -->
+         <hr>
+      </nav>
+      <div class="container">

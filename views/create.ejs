@@ -1,0 +1,52 @@
+<%- include ('./partials/header') -%>
+
+<header>
+   <h1>Creating Application's Settings:</h1>
+</header>
+<main>
+   <form name="appSettings" action="/app/create" method="POST">
+      <div class="selectData">
+         <label for="HostName:">Host Name:</label>
+         <input type="text" name="app[hostName]" placeholder="mail host name">
+      </div>
+      <div class="selectData">
+         <label for="Port">Port:</label>
+         <input type="text" name="app[port]" placeholder="mail port">
+      </div>
+      <div class="selectData">
+         <label for="Secure">Secure:</label>
+         <select class="" name="app[secure]">
+            <option value="true">True</option>
+            <option value="false" selected>False</option>
+         </select>
+      </div>
+      <div class="selectData">
+         <label for="from">From Field:</label>
+         <input type="text" name="app[from]" placeholder="from field">
+      </div>
+      <div class="selectData">
+         <label for="sender">To Field:</label>
+         <input type="text" name="app[sender]" placeholder="email1@email.com,email2@email.com,etc">
+      </div>
+      <div class="selectData">
+         <label for="user">Username:</label>
+         <input type="text" name="app[user]" placeholder="email username">
+      </div>
+      <div class="selectData">
+         <label for="password">Password:</label>
+         <input type="password" name="app[password]">
+      </div>
+      <div class="selectData">
+         <label for="Debugging">Debugging App:</label>
+         <input type="boolean" name="app[debugging]">
+      </div>
+      <div class="selectData">
+         <label for="seconds">Delay in Seconds:</label>
+         <input type="number" name="app[seconds]">
+      </div>
+      <button type="submit" name="button">Create Settings</button>
+   </form>
+</main>
+
+
+<%- include ('./partials/footer') -%>

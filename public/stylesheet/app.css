@@ -1,0 +1,127 @@
+html, body {
+   height: 80%;
+}
+
+body {
+}
+
+nav {
+   /* display: inline-flex; */
+   width: 100%;
+   font-size: 20px;
+}
+
+nav ol {
+   list-style-type: none;
+   display: inline-flex;
+   flex-flow: nowrap;
+}
+
+nav ol li {
+   margin: 0 0;
+}
+
+nav ol li a {
+   text-decoration: none;
+}
+
+header h1 {
+   font-size: 4em;
+   text-align: center;
+   border: 2px black solid;
+   border-radius: 20px;
+   padding: 20px 0;
+   margin: 20px 0 50px 0;
+}
+
+main p {
+   letter-spacing: 1px;
+   font-size: 2em;
+}
+form {
+   align-items: center;
+   text-align: center;
+}
+
+form button {
+   width: 20vw;
+   height: auto;
+   background-color: rgb(87, 201, 10);
+   color: white;
+   border-radius: 15px;
+   font-size: 1.5em;
+}
+
+form a {
+   margin-left: 3%;
+   font-size: 1.4em;
+   text-decoration: none;
+   font-weight: 800;
+}
+
+form .submitButton {
+   margin-top: 4%;
+}
+
+footer {
+   margin-top: 5%;;
+   height: 75px;
+}
+
+.menu-right {
+   position:sticky;
+   left: 70em;
+}
+
+.menu-right .item {
+   border: 1.5px solid black;
+   margin: 5px 0;
+   padding: 10px;
+   border-radius: 15px;
+   margin: 0 10px;
+   background-color: black;
+   color: white;
+   text-align: center;
+   box-shadow: 0px 2px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+.menu-right .item:hover {
+   cursor: pointer;
+   background-color: white;
+   color: black;
+}
+
+.container {
+   min-height: 100%;
+   margin: 0 auto;
+   width: 80%;
+}
+
+
+.end {
+   text-align: center;
+}
+
+.selectData {
+   margin: 20px 5px;
+   display: flex;
+   flex-flow: column;
+   align-items: center;
+}
+
+.selectData label {
+   font-size: 2em;
+}
+
+.selectData input, .selectData select {
+   width: 35%;
+   padding: 10px;
+   border-radius: 20px;
+   text-align: center;
+   font-size: 1.5em;
+}
+
+.selectData option {
+   text-align: center;
+   align-items: center;
+}

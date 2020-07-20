@@ -1,0 +1,19 @@
+{
+  "name": "pm2-watcher",
+  "version": "1.0.0",
+  "description": "Application that watches and reports pm2 functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Spriggs",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "nodemailer": "^6.4.10",
+    "pm2": "^4.4.0"
+  }
+}

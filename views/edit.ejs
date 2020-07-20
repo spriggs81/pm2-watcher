@@ -1,0 +1,56 @@
+<%- include ('./partials/header') -%>
+
+<header>
+   <h1>Editing Application's Settings:</h1>
+</header>
+<main>
+   <form name="appSettings" action="/app/edit?_method=PUT" method="post">
+      <div class="selectData">
+         <label for="HostName:">Host Name:</label>
+         <input type="text" name="app[hostName]" value="<%= appSetting.hostName %>">
+      </div>
+      <div class="selectData">
+         <label for="Port">Port:</label>
+         <input type="text" name="app[port]" value="<%= appSetting.port %>">
+      </div>
+      <div class="selectData">
+         <label for="Secure">Secure:</label>
+         <select class="" name="app[secure]">
+            <option value="<%= appSetting.secure %>" selected><%= appSetting.secure %></option>
+            <option value="true">True</option>
+            <option value="false">False</option>
+         </select>
+      </div>
+      <div class="selectData">
+         <label for="from">From Field:</label>
+         <input type="text" name="app[from]" value="<%= appSetting.from %>">
+      </div>
+      <div class="selectData">
+         <label for="sender">To Field:</label>
+         <input type="text" name="app[sender]" value="<%= appSetting.sender %>">
+      </div>
+      <div class="selectData">
+         <label for="user">Username:</label>
+         <input type="text" name="app[user]" value="<%= appSetting.user %>">
+      </div>
+      <div class="selectData">
+         <label for="password">Password:</label>
+         <input type="password" name="app[password]">
+      </div>
+      <div class="selectData">
+         <label for="Debugging">Debugging App:</label>
+         <input type="boolean" name="app[debugging]" value="<%= appSetting.debugging %>">
+      </div>
+      <div class="selectData">
+         <label for="seconds">Delay Reporting:</label>
+         <input type="text" name="app[seconds]" value="<%= appSetting.seconds %>">
+      </div>
+      <div class="submitButton">
+         <button type="submit" name="button">Save Changes</button>
+         <a href="/">Cancel</a>
+      </div>
+   </form>
+</main>
+
+
+<%- include ('./partials/footer') -%>
