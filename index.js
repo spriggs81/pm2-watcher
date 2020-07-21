@@ -58,7 +58,7 @@ app.post('/app/create',(req,res) => {
    const debugging = typeof(appSettings.debugging) == 'string' && appSettings.debugging.trim().length > 0 ? appSettings.debugging.trim() : false;
    const seconds = typeof(appSettings.seconds) == 'number' && appSettings.seconds > 0 ? appSettings.seconds : false;
    if(hostName && port && secure && from && sender && user && password && debugging && seconds){
-      
+
    } else {
       res.redirect('/app/create');
    }
@@ -102,7 +102,7 @@ app.put('/app/edit',(req,res) => {
 
 const port = 3000;
 app.listen(port,'localhost',() => {
-     console.log("listening on http://localhost:"+port);
+     console.log('\x1b[36m','\x1b[4m',"listening on http://localhost:"+port,'\x1b[0m');
 });
 
 main.init();
