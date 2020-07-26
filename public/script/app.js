@@ -36,17 +36,19 @@ app.formButton = () => {
             const dg = document.querySelector('input[name="app[debugging]"]');
             const ss = document.querySelector('input[name="app[seconds]"]');
             const hostName = typeof(hn.value) == 'string' && hn.value.trim().length > 0 ? hn.value : false;
-            const port = typeof(pt.value) == 'string' && pt.value.trim().length > 0 ? pt.value.trim() : false;
+            const port = typeof(Number(pt.value)) == 'number' && pt.value > 0 ? pt.value : false;
             const secure = typeof(se.value) == 'string' && se.value.trim().length > 0 ? se.value.trim() : false;
             const from = typeof(fm.value) == 'string' && fm.value.trim().length > 0 ? fm.value.trim() : false;
             const sender = typeof(sr.value) == 'string' && sr.value.trim().length > 0 ? sr.value.trim() : false;
             const user = typeof(ur.value) == 'string' && ur.value.trim().length > 0 ? ur.value.trim() : false;
             const password = typeof(pw.value) == 'string' && pw.value.trim().length > 0 ? pw.value.trim() : false;
             const debugging = typeof(dg.value) == 'string' && dg.value.trim().length > 0 ? dg.value.trim() : false;
-            const seconds = typeof(ss.value) == 'string' && ss.value.length > 0 ? ss.value : false;
+            const seconds = typeof(Number(ss.value)) == 'number' && Number(ss.value) > 0 ? ss.value : false;
+            console.log(hostName , port , secure , from , sender , user , password , debugging , seconds);
             if(hostName && port && secure && from && sender && user && password && debugging && seconds){
+               console.log("subitting");
                document.appSettings.submit();
-               window.location = '/';
+               // window.location = '/';
             } else {
                alert("You are missing information!");
             }

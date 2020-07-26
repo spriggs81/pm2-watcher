@@ -1,0 +1,1 @@
+{"pid":17252,"name":"app","id":1,"path":"C:\\nodeProjects\\Zendesk_app\\app.js","status":"online","uptime":1595733567051,"restartTime":0,"unstable":0,"appLog":"C:\\Users\\sprig\\.pm2\\logs\\app-out.log","errLog":"C:\\Users\\sprig\\.pm2\\logs\\app-error.log","checked":1595733572011,"type":"checkingExisting passed Process","timestamp":"06/25/2020 20:19:32"}

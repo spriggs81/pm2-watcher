@@ -47,28 +47,29 @@ app.get('/app/create',(req, res) => {
 });
 
 app.post('/app/create',(req,res) => {
+   console.log(req.body.app);
    const appSettings = req.body.app;
    const hostName = typeof(appSettings.hostName) == 'string' && appSettings.hostName.trim().length > 0 ? appSettings.hostName.trim() : false;
-   const port = typeof(appSettings.port) == 'string' && appSettings.port.trim().length > 0 ? appSettings.port.trim() : false;
-   const secure = typeof(appSettings.secure) == 'string' && appSettings.secure.trim().length > 0 ? appSettings.secure.trim() : false;
-   const from = typeof(appSettings.form) == 'string' && appSettings.from.trim().length > 0 ? appSettings.form.trim() : false;
+   const port = typeof(Number(appSettings.port)) == 'number' && appSettings.port > 0 ? Number(appSettings.port) : false;
+   const secure = typeof(appSettings.secure) == 'string' && appSettings.secure.trim() == "true" ? true : false;
+   const from = typeof(appSettings.from) == 'string' && appSettings.from.trim().length > 0 ? appSettings.from.trim() : false;
    const sender = typeof(appSettings.sender) == 'string' && appSettings.sender.trim().length > 0 ? appSettings.sender.trim() : false;
    const user = typeof(appSettings.user) == 'string' && appSettings.user.trim().length > 0 ? appSettings.user.trim() : false;
    const password = typeof(appSettings.password) == 'string' && appSettings.password.trim().length > 0 ? appSettings.password.trim() : false;
    const debugging = typeof(appSettings.debugging) == 'string' && appSettings.debugging.trim().length > 0 ? appSettings.debugging.trim() : false;
-   const seconds = typeof(appSettings.seconds) == 'number' && appSettings.seconds > 0 ? appSettings.seconds : false;
-   if(hostName && port && secure && from && sender && user && password && debugging && seconds){
-
+   const seconds = typeof(Number(appSettings.seconds)) == 'number' && appSettings.seconds > 0 ? Number(appSettings.seconds) : false;
+      console.log("host = ",hostName,'\n' , "port = ",port,'\n' , "secure = ",[true,false].indexOf(secure) > -1,'\n' , "from = ",from,'\n' , sender , user , password , debugging, seconds);
+   if(hostName && port && [true,false].indexOf(secure) > -1 && from && sender && user && password && debugging && seconds){
+      _bot.writeSettings('app','settings',appSettings,(err) => {
+         if(!err){
+            res.redirect('/');
+         } else {
+            res.redirect('/app/create');
+         }
+      });
    } else {
       res.redirect('/app/create');
    }
-   _bot.writeSettings('app','settings',appSettings,(err) => {
-      if(!err){
-         res.redirect('/');
-      } else {
-         res.redirect('/app/create');
-      }
-   });
 });
 
 app.get('/app/edit',(req,res) => {
@@ -81,11 +82,12 @@ app.get('/app/edit',(req,res) => {
       }
       res.render('edit',{appSetting:app});
    });
-
 });
 
 app.put('/app/edit',(req,res) => {
    const appSettings = req.body.app;
+   appSettings.port = Number(req.body.app[port]);
+   appSettings.seconds = Number(req.body.app[seconds]);
    _bot.writeSettings('app','settings',appSettings,(err) => {
       if(!err){
          res.redirect('/');
@@ -95,10 +97,9 @@ app.put('/app/edit',(req,res) => {
    });
 });
 
-/*
-* server
-*
-*/
+app.get('*',(req,res) => {
+   res.send("This is a unknown route, please go back <a href='/'>Please click here! </a>")
+});
 
 const port = 3000;
 app.listen(port,'localhost',() => {
