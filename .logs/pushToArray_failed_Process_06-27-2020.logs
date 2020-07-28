@@ -1,0 +1,1 @@
+{"pid":0,"name":"pizzaPlace","id":3,"path":"C:\\nodeProjects\\pizzaStore\\pizzaPlace.js","status":"stopped","uptime":1595905593930,"restartTime":0,"unstable":0,"appLog":"C:\\Users\\sprig\\.pm2\\logs\\pizzaPlace-out.log","errLog":"C:\\Users\\sprig\\.pm2\\logs\\pizzaPlace-error.log","checked":1595912595959,"type":"checkingExisting failed Process","timestamp":"06/27/2020 22:03:15"}
