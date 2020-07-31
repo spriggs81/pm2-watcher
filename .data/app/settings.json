@@ -1,1 +1,1 @@
-{"hostName":null,"port":null,"secure":null,"from":null,"sender":null,"user":null,"password":null,"debugging":null,"seconds":null}
+{"hostName":"smtp.gmail.com","port":"587","secure":"false","from":"PM2 Watcher App","sender":"gottotestmyapp@gmail.com","user":"mywebapplive@gmail.com","password":"19John81","debugging":"false","seconds":"60"}
