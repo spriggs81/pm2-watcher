@@ -33,8 +33,12 @@ app.formButton = () => {
             const sr = document.querySelector('input[name="app[sender]"]');
             const ur = document.querySelector('input[name="app[user]"]');
             const pw = document.querySelector('input[name="app[password]"]');
-            const dg = document.querySelector('input[name="app[debugging]"]');
-            const ss = document.querySelector('input[name="app[seconds]"]');
+            const dg = document.querySelector('select[name="app[debugging]"]');
+            const fD = document.querySelector('input[name="app[failedDelays]"]');
+            const pD = document.querySelector('input[name="app[passedDelays]"]');
+            console.log(document.querySelector('input[name="app[debugging]"]'));
+            console.log(dg);
+            console.log(document.querySelector("form"));
             const hostName = typeof(hn.value) == 'string' && hn.value.trim().length > 0 ? hn.value : false;
             const port = typeof(Number(pt.value)) == 'number' && pt.value > 0 ? pt.value : false;
             const secure = typeof(se.value) == 'string' && se.value.trim().length > 0 ? se.value.trim() : false;
@@ -43,10 +47,9 @@ app.formButton = () => {
             const user = typeof(ur.value) == 'string' && ur.value.trim().length > 0 ? ur.value.trim() : false;
             const password = typeof(pw.value) == 'string' && pw.value.trim().length > 0 ? pw.value.trim() : false;
             const debugging = typeof(dg.value) == 'string' && dg.value.trim().length > 0 ? dg.value.trim() : false;
-            const seconds = typeof(Number(ss.value)) == 'number' && Number(ss.value) > 0 ? ss.value : false;
-            console.log(hostName , port , secure , from , sender , user , password , debugging , seconds);
-            if(hostName && port && secure && from && sender && user && password && debugging && seconds){
-               console.log("subitting");
+            const failedDelays = typeof(Number(fD.value)) == 'number' && Number(fD.value) > 0 ? fD.value : false;
+            const passedDelays = typeof(Number(pD.value)) == 'number' && Number(pD.value) > 0 ? pD.value : false;
+            if(hostName && port && secure && from && sender && user && password && debugging && failedDelays && passedDelays){
                document.appSettings.submit();
                // window.location = '/';
             } else {

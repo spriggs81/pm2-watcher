@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const _bot = require('.\\lib\\bots');
-const main = require('.\\lib\\main');
+const _main = require('.\\lib\\main');
 
 // Setting up server app
 const app = express();
@@ -57,11 +57,12 @@ app.post('/app/create',(req,res) => {
    const user = typeof(appSettings.user) == 'string' && appSettings.user.trim().length > 0 ? appSettings.user.trim() : false;
    const password = typeof(appSettings.password) == 'string' && appSettings.password.trim().length > 0 ? appSettings.password.trim() : false;
    const debugging = typeof(appSettings.debugging) == 'string' && appSettings.debugging.trim().length > 0 ? appSettings.debugging.trim() : false;
-   const seconds = typeof(Number(appSettings.seconds)) == 'number' && appSettings.seconds > 0 ? Number(appSettings.seconds) : false;
-      console.log("host = ",hostName,'\n' , "port = ",port,'\n' , "secure = ",[true,false].indexOf(secure) > -1,'\n' , "from = ",from,'\n' , sender , user , password , debugging, seconds);
-   if(hostName && port && [true,false].indexOf(secure) > -1 && from && sender && user && password && debugging && seconds){
+   const failedDelays = typeof(Number(appSettings.failedDelays)) == 'number' && appSettings.failedDelays > 0 ? Number(appSettings.failedDelays) : false;
+   const passedDelays = typeof(Number(appSettings.passedDelays)) == 'number' && appSettings.passedDelays > 0 ? Number(appSettings.passedDelays) : false;
+   if(hostName && port && [true,false].indexOf(secure) > -1 && from && sender && user && password && debugging && failedDelays && passedDelays){
       _bot.writeSettings('app','settings',appSettings,(err) => {
          if(!err){
+            _main.init();
             res.redirect('/');
          } else {
             res.redirect('/app/create');
@@ -86,8 +87,6 @@ app.get('/app/edit',(req,res) => {
 
 app.put('/app/edit',(req,res) => {
    const appSettings = req.body.app;
-   appSettings.port = Number(req.body.app[port]);
-   appSettings.seconds = Number(req.body.app[seconds]);
    _bot.writeSettings('app','settings',appSettings,(err) => {
       if(!err){
          res.redirect('/');
@@ -106,4 +105,4 @@ app.listen(port,'localhost',() => {
      console.log('\x1b[36m','\x1b[4m',"listening on http://localhost:"+port,'\x1b[0m');
 });
 
-main.init();
+_main.init();

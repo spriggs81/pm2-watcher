@@ -16,9 +16,17 @@
       <div class="selectData">
          <label for="Secure">Secure:</label>
          <select class="" name="app[secure]">
-            <option value="true">True</option>
-            <option value="false" selected>False</option>
+            <option value="false" selected>false</option>
+            <option value="true">true</option>
          </select>
+      </div>
+      <div class="selectData">
+         <label for="user">Email's Username:</label>
+         <input type="text" name="app[user]" placeholder="email username">
+      </div>
+      <div class="selectData">
+         <label for="password">Email's Password:</label>
+         <input type="password" name="app[password]">
       </div>
       <div class="selectData">
          <label for="from">From Field:</label>
@@ -29,20 +37,19 @@
          <input type="text" name="app[sender]" placeholder="email1@email.com,email2@email.com,etc">
       </div>
       <div class="selectData">
-         <label for="user">Username:</label>
-         <input type="text" name="app[user]" placeholder="email username">
+         <label for="debugging">Debugging App:</label>
+         <select class="" name="app[debugging]">
+            <option value="false" selected>false</option>
+            <option value="true">true</option>
+         </select>
       </div>
       <div class="selectData">
-         <label for="password">Password:</label>
-         <input type="password" name="app[password]">
+         <label for="failedDelays">Delay before notify for failed process(es) (in seconds):</label>
+         <input type="number" name="app[failedDelays]">
       </div>
       <div class="selectData">
-         <label for="Debugging">Debugging App:</label>
-         <input type="boolean" name="app[debugging]">
-      </div>
-      <div class="selectData">
-         <label for="seconds">Delay in Seconds:</label>
-         <input type="number" name="app[seconds]">
+         <label for="passedDelays">Delay before confirming failed process(es) back online (in seconds):</label>
+         <input type="number" name="app[passedDelays]">
       </div>
       <button type="submit" name="button">Create Settings</button>
    </form>
