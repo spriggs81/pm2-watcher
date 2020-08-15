@@ -113,15 +113,19 @@ footer {
    font-size: 2em;
 }
 
-.selectData input, .selectData select {
-   width: 35%;
+.selectData input {
+   width: 35vw;
    padding: 10px;
    border-radius: 20px;
    text-align: center;
    font-size: 1.5em;
 }
 
-.selectData option {
-   text-align: center;
-   align-items: center;
+.selectData select {
+   border: black 2px solid;
+   width: 38vw;
+   padding: 10px;
+   border-radius: 22px;
+   text-align-last: center;
+   font-size: 1.5em;
 }
