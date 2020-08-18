@@ -1,7 +1,7 @@
 {
   "name": "pm2-watcher",
   "version": "1.0.0",
-  "description": "Application that watches and reports pm2 functions",
+  "description": "Application sends email notifications when pm2 processes are offline and follow-up if process comes back online.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
