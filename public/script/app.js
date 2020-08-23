@@ -1,4 +1,3 @@
-
 const app = {}
 
 app.bindButton = () => {
@@ -26,30 +25,34 @@ app.formButton = () => {
       for(let i = 0; i < forms.length; i++){
          forms[i].addEventListener('submit',(e) => {
             e.preventDefault();
-            const hn = document.querySelector('input[name="app[hostName]"]');
-            const pt = document.querySelector('input[name="app[port]"]');
-            const se = document.querySelector('select[name="app[secure]"]');
-            const fm = document.querySelector('input[name="app[from]"]');
-            const sr = document.querySelector('input[name="app[sender]"]');
-            const ur = document.querySelector('input[name="app[user]"]');
-            const pw = document.querySelector('input[name="app[password]"]');
+            const booleanArry = [true,false];
+            const hn = document.querySelector('input[name="mail[hostName]"]');
+            const pt = document.querySelector('input[name="mail[port]"]');
+            const se = document.querySelector('select[name="mail[secure]"]');
+            const fm = document.querySelector('input[name="mail[from]"]');
+            const sr = document.querySelector('input[name="mail[sender]"]');
+            const ur = document.querySelector('input[name="mail[user]"]');
+            const pw = document.querySelector('input[name="mail[password]"]');
             const dg = document.querySelector('select[name="app[debugging]"]');
             const fD = document.querySelector('input[name="app[failedDelays]"]');
             const pD = document.querySelector('input[name="app[passedDelays]"]');
-            console.log(document.querySelector('input[name="app[debugging]"]'));
-            console.log(dg);
-            console.log(document.querySelector("form"));
+            const aL = document.querySelector('select[name="app[allowLogs]"]');
             const hostName = typeof(hn.value) == 'string' && hn.value.trim().length > 0 ? hn.value : false;
             const port = typeof(Number(pt.value)) == 'number' && pt.value > 0 ? pt.value : false;
-            const secure = typeof(se.value) == 'string' && se.value.trim().length > 0 ? se.value.trim() : false;
+            const secure = se.value == 'true' ? true : false;
             const from = typeof(fm.value) == 'string' && fm.value.trim().length > 0 ? fm.value.trim() : false;
             const sender = typeof(sr.value) == 'string' && sr.value.trim().length > 0 ? sr.value.trim() : false;
             const user = typeof(ur.value) == 'string' && ur.value.trim().length > 0 ? ur.value.trim() : false;
-            const password = typeof(pw.value) == 'string' && pw.value.trim().length > 0 ? pw.value.trim() : false;
-            const debugging = typeof(dg.value) == 'string' && dg.value.trim().length > 0 ? dg.value.trim() : false;
+            let password = typeof(pw.value) == 'string' && pw.value.trim().length > 0 ? pw.value.trim() : false;
+            const debugging = dg.value == 'true' ? true : false;
             const failedDelays = typeof(Number(fD.value)) == 'number' && Number(fD.value) > 0 ? fD.value : false;
             const passedDelays = typeof(Number(pD.value)) == 'number' && Number(pD.value) > 0 ? pD.value : false;
-            if(hostName && port && secure && from && sender && user && password && debugging && failedDelays && passedDelays){
+            const allowLogs = aL.value == 'true' ? true : false;;
+            if(document.querySelector('form').action.indexOf('PUT') > -1 == true){
+               console.log("password changed!");
+               password = "oldPassword";
+            }
+            if(hostName && port && booleanArry.indexOf(secure) > -1 && from && sender && user && booleanArry.indexOf(debugging) > -1 && failedDelays && passedDelays && booleanArry.indexOf(allowLogs) > -1){
                document.appSettings.submit();
                // window.location = '/';
             } else {

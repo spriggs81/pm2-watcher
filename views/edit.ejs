@@ -5,53 +5,74 @@
 </header>
 <main>
    <form name="appSettings" action="/app/edit?_method=PUT" method="post">
-      <div class="selectData">
-         <label for="HostName:">Host Name:</label>
-         <input type="text" name="app[hostName]" value="<%= appSetting.hostName %>">
+      <div class="mail">
+         <div class="selectData">
+            <label for="HostName:">Host Name:</label>
+            <input type="text" name="mail[hostName]" value="<%= appSetting.mail.hostName %>">
+         </div>
+         <div class="selectData">
+            <label for="Port">Port:</label>
+            <input type="text" name="mail[port]" value="<%= appSetting.mail.port %>">
+         </div>
+         <div class="selectData">
+            <label for="Secure">Secure:</label>
+            <select class="" name="mail[secure]">
+               <option value="<%= appSetting.mail.secure %>" selected><%= appSetting.mail.secure %></option>
+               <% if(appSetting.mail.secure === "true"){ %>
+                  <option value="false">false</option>
+               <% } else { %>
+                  <option value="true">true</option>
+               <% } %>
+            </select>
+         </div>
+         <div class="selectData">
+            <label for="user">Email's Username:</label>
+            <input type="text" name="mail[user]" value="<%= appSetting.mail.user %>">
+         </div>
+         <div class="selectData">
+            <label for="password">Email's Password:</label>
+            <input type="text" name="mail[password]" value="">
+         </div>
+         <div class="selectData">
+            <label for="from">From Field:</label>
+            <input type="text" name="mail[from]" value="<%= appSetting.mail.from %>">
+         </div>
+         <div class="selectData">
+            <label for="sender">To Field:</label>
+            <input type="text" name="mail[sender]" value="<%= appSetting.mail.sender %>">
+         </div>
       </div>
-      <div class="selectData">
-         <label for="Port">Port:</label>
-         <input type="text" name="app[port]" value="<%= appSetting.port %>">
-      </div>
-      <div class="selectData">
-         <label for="Secure">Secure:</label>
-         <select class="" name="app[secure]">
-            <option value="<%= appSetting.secure %>" selected><%= appSetting.secure %></option>
-            <option value="false">false</option>
-            <option value="true">true</option>
-         </select>
-      </div>
-      <div class="selectData">
-         <label for="user">Email's Username:</label>
-         <input type="text" name="app[user]" value="<%= appSetting.user %>">
-      </div>
-      <div class="selectData">
-         <label for="password">Email's Password:</label>
-         <input type="password" name="app[password]">
-      </div>
-      <div class="selectData">
-         <label for="from">From Field:</label>
-         <input type="text" name="app[from]" value="<%= appSetting.from %>">
-      </div>
-      <div class="selectData">
-         <label for="sender">To Field:</label>
-         <input type="text" name="app[sender]" value="<%= appSetting.sender %>">
-      </div>
-      <div class="selectData">
-         <label for="debugging">Debugging App:</label>
-         <select class="" name="app[debuggig]">
-            <option value="<%= appSetting.debugging %>" selected><%= appSetting.debugging %></option>
-            <option value="false">false</option>
-            <option value="true">true</option>
-         </select>
-      </div>
-      <div class="selectData">
-         <label for="failedDelays">Delay before notify for failed process(es) (in seconds):</label>
-         <input type="number" name="app[failedDelays]" value="<%= appSetting.failedDelays %>">
-      </div>
-      <div class="selectData">
-         <label for="passedDelays">Delay before confirming failed process(es) back online (in seconds):</label>
-         <input type="number" name="app[passedDelays]" value="<%= appSetting.passedDelays %>">
+      <div class="app">
+         <div class="selectData">
+            <label for="debugging">Debugging App:</label>
+            <select class="" name="app[debugging]">
+               <option value="<%= appSetting.debugging %>" selected><%= appSetting.app.debugging %></option>
+               <% if(appSetting.app.debugging === "true"){ %>
+                  <option value="false">false</option>
+               <% } else { %>
+                  <option value="true">true</option>
+               <% } %>
+            </select>
+         </div>
+         <div class="selectData">
+            <label for="failedDelays">Time between failed process and notice (in seconds):</label>
+            <input type="number" name="app[failedDelays]" value="<%= appSetting.app.failedDelays %>">
+         </div>
+         <div class="selectData">
+            <label for="passedDelays">Time between recovered process and notice (in seconds):</label>
+            <input type="number" name="app[passedDelays]" value="<%= appSetting.app.passedDelays %>">
+         </div>
+         <div class="selectData">
+            <label for="allowLogs">Send Logs in email:</label>
+            <select class="" name="app[allowLogs]">
+               <option value="<%= appSetting.app.allowLogs %>" selected><%= appSetting.app.allowLogs %></option>
+               <% if(appSetting.app.allowLogs === "true"){ %>
+                  <option value="false">false</option>
+               <% } else { %>
+                  <option value="true">true</option>
+               <% } %>
+            </select>
+         </div>
       </div>
       <div class="submitButton">
          <button type="submit" name="button">Save Changes</button>

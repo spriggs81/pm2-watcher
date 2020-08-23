@@ -16,20 +16,45 @@ Install the app from NPM:
 npm install pm2-watcher --save
 ```
 
-Once installed, you will need to install the dependencies:
+### examples
+
+To start the app's provided settings management please use the following code.
 
 ```
-C:\pm2-watcher> npm install
+const pm2Watcher = require('pm2-watcher');
+
+pm2Watcher.startApp(port); // optional port, app will start
+                           // on port you provide it or will default to 4000
 ```
 
-Once dependencies are installed, start the app:
+To start the app without using the provided settings management use the following.
 
 ```
-C:\pm2-watcher> node index.js
+const pm2Watcher = require('pm2-watcher');
+
+const mailSettings = {
+   hostName : "string",             // stmp.gmail.com
+   port : "number",                 // port number
+   secure : "boolean",              // true or false
+   user : "string",                 // username for email address access
+   password : "password",           // password or token for access to Email
+   from : "string",                 // displayed in the email's from field
+   sender : "string"                // "To" field in email ('email1@mail.com,email2@mail.com')
+}
+
+const appSettings = {
+   debugging : "boolean",           // true or false (default false)
+   failedDelays : "number",         // delay between email notify for failed process (default 300)
+   passedDelays : "number",         // delay between email notify of online process that failed (default 300)
+   allowLogs : "boolean"            // true or false (default true)
+}
+
+pm2Watcher.setMail(mailSettings)    // Enters in mail settings for app to use
+
+pm2Watcher.setApp(appSettings)      // Enters in app settings
+
+pm2Watcher.startApp()               // Start the app using the provided settings
 ```
-
-Jump to the splash page and enter in the required information.
-
 
 ## Authors
 

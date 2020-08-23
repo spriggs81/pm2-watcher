@@ -5,51 +5,62 @@
 </header>
 <main>
    <form name="appSettings" action="/app/create" method="POST">
-      <div class="selectData">
-         <label for="HostName:">Host Name:</label>
-         <input type="text" name="app[hostName]" placeholder="mail host name">
+      <div class="mail">
+         <div class="selectData">
+            <label for="HostName:">Host Name:</label>
+            <input type="text" name="mail[hostName]" placeholder="mail host name">
+         </div>
+         <div class="selectData">
+            <label for="Port">Port:</label>
+            <input type="text" name="mail[port]" placeholder="mail port">
+         </div>
+         <div class="selectData">
+            <label for="Secure">Secure:</label>
+            <select class="" name="mail[secure]">
+               <option value="false" selected>false</option>
+               <option value="true">true</option>
+            </select>
+         </div>
+         <div class="selectData">
+            <label for="user">Email's Username:</label>
+            <input type="text" name="mail[user]" placeholder="email username">
+         </div>
+         <div class="selectData">
+            <label for="password">Email's Password:</label>
+            <input type="password" name="mail[password]">
+         </div>
+         <div class="selectData">
+            <label for="from">From Field:</label>
+            <input type="text" name="mail[from]" placeholder="from field">
+         </div>
+         <div class="selectData">
+            <label for="sender">To Field:</label>
+            <input type="text" name="mail[sender]" placeholder="email1@email.com,email2@email.com,etc">
+         </div>
       </div>
-      <div class="selectData">
-         <label for="Port">Port:</label>
-         <input type="text" name="app[port]" placeholder="mail port">
-      </div>
-      <div class="selectData">
-         <label for="Secure">Secure:</label>
-         <select class="" name="app[secure]">
-            <option value="false" selected>false</option>
-            <option value="true">true</option>
-         </select>
-      </div>
-      <div class="selectData">
-         <label for="user">Email's Username:</label>
-         <input type="text" name="app[user]" placeholder="email username">
-      </div>
-      <div class="selectData">
-         <label for="password">Email's Password:</label>
-         <input type="password" name="app[password]">
-      </div>
-      <div class="selectData">
-         <label for="from">From Field:</label>
-         <input type="text" name="app[from]" placeholder="from field">
-      </div>
-      <div class="selectData">
-         <label for="sender">To Field:</label>
-         <input type="text" name="app[sender]" placeholder="email1@email.com,email2@email.com,etc">
-      </div>
-      <div class="selectData">
-         <label for="debugging">Debugging App:</label>
-         <select class="" name="app[debugging]">
-            <option value="false" selected>false</option>
-            <option value="true">true</option>
-         </select>
-      </div>
-      <div class="selectData">
-         <label for="failedDelays">Delay before notify for failed process(es) (in seconds):</label>
-         <input type="number" name="app[failedDelays]">
-      </div>
-      <div class="selectData">
-         <label for="passedDelays">Delay before confirming failed process(es) back online (in seconds):</label>
-         <input type="number" name="app[passedDelays]">
+      <div class="app">
+         <div class="selectData">
+            <label for="debugging">Debugging App:</label>
+            <select class="" name="app[debugging]">
+               <option value="false" selected>false</option>
+               <option value="true">true</option>
+            </select>
+         </div>
+         <div class="selectData">
+            <label for="failedDelays">Time between failed process and notice (in seconds):</label>
+            <input type="number" name="app[failedDelays]">
+         </div>
+         <div class="selectData">
+            <label for="passedDelays">Time between recovered process and notice (in seconds):</label>
+            <input type="number" name="app[passedDelays]">
+         </div>
+         <div class="selectData">
+            <label for="allowLogs">Send Logs in email:</label>
+            <select class="" name="app[allowLogs]">
+               <option value="true" selected>true</option>
+               <option value="false">false</option>
+            </select>
+         </div>
       </div>
       <button type="submit" name="button">Create Settings</button>
    </form>
