@@ -23,7 +23,7 @@ To start the app's provided settings management please use the following code.
 ```
 const pm2Watcher = require('pm2-watcher');
 
-pm2Watcher.startApp(port); // optional port, app will start
+pm2Watcher.startServer(port); // optional port, app will start
                            // on port you provide it or will default to 4000
 ```
 
@@ -44,8 +44,8 @@ const mailSettings = {
 
 const appSettings = {
    debugging : "boolean",           // true or false (default false)
-   failedDelays : "number",         // delay between email notify for failed process (default 300)
-   passedDelays : "number",         // delay between email notify of online process that failed (default 300)
+   failedDelays : "number",         // delay(secs) between email notify for failed process (default 300)
+   passedDelays : "number",         // delay(secs) between email notify of online process that failed (default 300)
    allowLogs : "boolean"            // true or false (default true)
 }
 
@@ -61,4 +61,4 @@ pm2Watcher.startApp()               // Start the app using the provided settings
 * **John Spriggs** - *Initial work* - [spriggs81](https://github.com/spriggs81)
 
 ## Acknowledgments
-*  Spenser C.
+*  Spenser
