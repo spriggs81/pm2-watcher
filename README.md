@@ -1,10 +1,10 @@
-# PM2 Watch & Monitor
+# PM2 Watcher
 
 The application watches PM2 Processes; if a process stops, errored, fails, or none thing starts, it will send out an email notification.  Once an offline process comes back online, the application will send out a follow-up email notification.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Installing
 
@@ -24,7 +24,8 @@ To start the app's provided settings management please use the following code.
 const pm2Watcher = require('pm2-watcher');
 
 pm2Watcher.startServer(port); // optional port, app will start
-                           // on port you provide it or will default to 4000
+                              // on port you provide it or will
+                              // default to 4000
 ```
 
 To start the app without using the provided settings management use the following.
@@ -33,13 +34,13 @@ To start the app without using the provided settings management use the followin
 const pm2Watcher = require('pm2-watcher');
 
 const mailSettings = {
-   hostName : "string",             // stmp.gmail.com
+   hostName : "string",             // "stmp.gmail.com"
    port : "number",                 // port number
    secure : "boolean",              // true or false
-   user : "string",                 // username for email address access
-   password : "password",           // password or token for access to Email
-   from : "string",                 // displayed in the email's from field
-   sender : "string"                // "To" field in email ('email1@mail.com,email2@mail.com')
+   user : "string",                 // "username for email address access"
+   password : "string",             // "password or token for access to Email"
+   from : "string",                 // "displayed in the email's from field"
+   sender : "string"                // "To" field in email ("email1@mail.com,email2@mail.com")
 }
 
 const appSettings = {
