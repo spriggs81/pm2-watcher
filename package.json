@@ -1,6 +1,6 @@
 {
    "name": "pm2-watcher",
-   "version": "1.0.3",
+   "version": "1.0.4",
    "description": "Application sends email notifications when pm2 processes are offline and follow-up if process comes back online.",
    "main": "index.js",
    "scripts": {
