@@ -1,6 +1,6 @@
 {
    "name": "pm2-watcher",
-   "version": "1.0.4",
+   "version": "1.0.6",
    "description": "Application sends email notifications when pm2 processes are offline and follow-up if process comes back online.",
    "main": "index.js",
    "scripts": {
@@ -18,7 +18,7 @@
       "pm2": "^4.4.0"
    },
    "publishConfig": {
-      "registry": "https://www.npmjs.com/package/pm2-watcher"
+      "registry": "https://registry.npmjs.org/"
    },
    "repository": {
       "type": "git",
