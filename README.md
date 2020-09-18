@@ -57,11 +57,9 @@ pm2Watcher.setApp(appSettings)      // Enters in app settings
 pm2Watcher.startApp()               // Start the app using the provided settings
 ```
 
-You can also watch an install, setup, and demo/testing of the app here:
+## Videos
 
-```
-[YouTube](https://youtu.be/8m2RnxCvOL0);
-```
+* [YouTube](https://youtu.be/8m2RnxCvOL0)
 
 ## Authors
 
