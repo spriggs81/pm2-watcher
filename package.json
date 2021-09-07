@@ -1,6 +1,6 @@
 {
    "name": "pm2-watcher",
-   "version": "1.0.8",
+   "version": "1.0.9",
    "description": "Application sends email notifications when pm2 processes are offline and follow-up if process comes back online.",
    "main": "index.js",
    "scripts": {
@@ -15,7 +15,7 @@
       "lodash": "^4.17.21",
       "method-override": "^3.0.0",
       "netmask": "^2.0.2",
-      "nodemailer": "^6.5.0",
+      "nodemailer": "^6.6.3",
       "pm2": "^4.5.6"
    },
    "publishConfig": {
