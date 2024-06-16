@@ -24,6 +24,6 @@
    },
    "repository": {
       "type": "git",
-      "url": "https://github.com/spriggs81/pm2-watcher"
+      "url": "git+https://github.com/spriggs81/pm2-watcher.git"
    }
 }
